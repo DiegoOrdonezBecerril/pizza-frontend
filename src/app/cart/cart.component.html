@@ -1,0 +1,15 @@
+<div class="cart flex justify-content-center flex-wrap">
+    <div class="flex flex-column align-items-center justify-content-center">
+        <div class="item flex flex-column" *ngFor="let item of items">
+            <div class="cart-item-name">{{item.pizzaName}}</div>
+            <div>
+                <p-button icon="pi pi-minus" styleClass="p-button-warning" (onClick)="remove(item.pizzaName)"></p-button>
+                <p-button label="{{item.amount}}" styleClass="p-button-secondary" [disabled]="true"></p-button>
+                <p-button icon="pi pi-plus" styleClass="p-button-success" (onClick)="add(item.pizzaName)"></p-button>
+                <p-button icon="pi pi-trash" styleClass="p-button-danger" (onClick)="delete(item.pizzaName)"></p-button>
+            </div>
+        </div>
+        <p-button *ngIf="valid" label="Checkout" styleClass="p-button-help" (onClick)="checkout()"></p-button>
+    </div>
+</div>
+<p-toast></p-toast>
